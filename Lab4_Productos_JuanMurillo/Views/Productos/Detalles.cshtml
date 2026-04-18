@@ -1,0 +1,19 @@
+﻿@model Lab4_Productos_JuanMurillo.Models.Producto
+
+<h2>Detalles del Producto</h2>
+
+@if (Model != null)
+{
+    <ul>
+        <li><strong>Id:</strong> @Model.Id</li>
+        <li><strong>Nombre:</strong> @Model.Nombre</li>
+        <li><strong>Precio:</strong> @Model.Precio.ToString("$0.00")</li>
+        <li><strong>Categoría:</strong> @Model.Categoria</li>
+    </ul>
+
+    <a asp-action="Index">Volver</a>
+}
+else
+{
+    <p>Producto no encontrado.</p>
+}

@@ -1,0 +1,25 @@
+﻿@model Lab4_Productos_JuanMurillo.Models.Producto
+
+<h2>Eliminar Producto</h2>
+
+@if (Model != null)
+{
+    <p>¿Está seguro que desea eliminar este producto?</p>
+
+    <ul>
+        <li><strong>Id:</strong> @Model.Id</li>
+        <li><strong>Nombre:</strong> @Model.Nombre</li>
+        <li><strong>Precio:</strong> @Model.Precio.ToString("$0.00")</li>
+        <li><strong>Categoría:</strong> @Model.Categoria</li>
+    </ul>
+
+    <form asp-controller="Productos" asp-action="EliminarConfirmado" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit">Sí, eliminar</button>
+        <a asp-action="Index">Cancelar</a>
+    </form>
+}
+else
+{
+    <p>Producto no encontrado.</p>
+}

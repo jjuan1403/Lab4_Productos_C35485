@@ -1,0 +1,25 @@
+﻿@model List<Lab4_Productos_JuanMurillo.Models.Producto>
+
+<h2>Productos</h2>
+
+<a asp-controller="Productos" asp-action="Crear">Nuevo Producto</a>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No hay productos registrados.</p>    
+}
+else
+{
+    <ul>
+        @foreach (var p in Model)
+        {
+            <li>
+                @p.Id - @p.Nombre - @p.Precio.ToString("$0.00") - @p.Categoria
+                |
+                <a asp-action="Detalles" asp-route-id="@p.Id">Detalles</a>
+                <a asp-action="Editar" asp-route-id="@p.Id">Editar</a>
+                <a asp-action="Eliminar" asp-route-id="@p.Id">Eliminar</a>
+            </li>
+        }
+    </ul>
+}
